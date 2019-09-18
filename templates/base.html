@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>论坛主页</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+    {#        <link rel="stylesheet" href="/static/css/style.css">#}
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png">
+    <link rel="manifest" href="/static/img/site.webmanifest">
+</head>
+<body>
+<div class="custom-padding">
+    <nav>
+        <div class="logo">Auramux</div>
+
+        <ul class="menu-area">
+            <li><a href="{{ url_for('.index') }}">话题</a></li>
+            <li><a href="{{ url_for('index.setting') }}">设置</a></li>
+            <li><a href="{{ url_for('index.profile') }}">个人中心</a></li>
+            <li><a href="/">首页</a></li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>

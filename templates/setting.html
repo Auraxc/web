@@ -1,0 +1,117 @@
+<link href="/static/css/user.css" media="all" rel="stylesheet">
+{% extends "topic/base.html" %}
+
+{% block title %}设置{% endblock %}
+{% block main %}
+    <div id="content">
+        <div class="panel">
+            <div class="header">
+                <ul class="breadcrumb">
+                    <li class="active">设置</li>
+                </ul>
+            </div>
+            <div class="inner">
+
+
+                <form id="setting_form" class="form-horizontal" action="{{ url_for('.update_setting') }}" method="post"
+                      _lpchecked="1">
+                    <div class="control-group">
+                        <label class="control-label" for="username">用户名</label>
+
+                        <div class="controls">
+                            <input class="input-xlarge readonly" id="username" name="username" size="30" type="text"
+                                   value="{{ user.username }}">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="email">电子邮件</label>
+
+                        <div class="controls">
+                            <input class="input-xlarge readonly" id="email" name="email" size="30" type="text"
+                                   readonly="true" value="{{ user.email }}">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="bio">个性签名</label>
+
+                        <div class="controls">
+                            <textarea class="input-xlarge" id="bio" name="bio" size="30"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <input type="submit" class="editor_buttons" data-loading-text="保存中.." value="保存设置">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="header">
+                <span class="col_fade">更改密码</span>
+            </div>
+            <div class="inner">
+                <form id="change_pass_form" class="form-horizontal" action="{{ url_for('.update_password') }}"
+                      method="post">
+                    <div class="control-group">
+                        <label class="control-label" for="old_pass">当前密码</label>
+
+                        <div class="controls">
+                            <input class="input-xlarge" type="password" id="old_pass" name="old_pass" size="30">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="new_pass">新密码</label>
+
+                        <div class="controls">
+                            <input class="input-xlarge" type="password" id="new_pass" name="new_pass" size="30">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <input type="submit" class="editor_buttons" data-loading-text="更改中.." value="更改密码">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="header">
+                <span class="col_fade">上传头像</span>
+            </div>
+            <div class="inner">
+                <form id="update" class="form-horizontal" method="post"
+                  action="{{ url_for('.avatar_add') }}" enctype="multipart/form-data">
+                    <div class="control-group">
+                        <label class="control-label" for="old_pass"></label>
+                        <input type="file" name="avatar">
+                    </div>
+                    <div class="form-actions">
+                        <input type="submit" class="editor_buttons" data-loading-text="上传中.." value="上传头像">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+{% endblock %}
+{#</div>#}
+
+<script>
+    (function () {
+        var editor = new Editor();
+        editor.render($('.editor')[0]);
+    })();
+
+</script>
+
+{#{% endblock %}#}
+
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+

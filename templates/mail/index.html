@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>发送邮件</p>
+<form method="post" action="{{ url_for('.add') }}">
+    <input type="text" name="content" placeholder="content">
+    <input type="text" name="title" placeholder="title">
+    <input type="text" name="receiver_id" placeholder="receiver_id">
+    <button type="submit">发送邮件</button>
+</form>
+
+<p>收到邮件</p>
+{% for r in received %}
+    <div>
+        <a href="{{ url_for('.view', id = r.id) }}"> {{ r.title }}</a>
+    </div>
+{% endfor %}
+
+<p>发送邮件</p>
+{% for s in send %}
+    <div>
+        <a href="{{ url_for('.view', id = s.id) }}"> {{ s.title }}</a>
+    </div>
+{% endfor %}
+
+</body>
+</html>

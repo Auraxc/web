@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auramux</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png">
+    <link rel="manifest" href="/static/img/site.webmanifest">
+</head>
+<body>
+<div id="register-box">
+    <div class="left-box">
+        <h1> Sign up </h1>
+        <form method="POST" action={{ url_for(".register") }}>
+            <label>
+                <input type="text" name="username" placeholder="Username"/>
+            </label>
+            <label>
+                <input type="text" name="email" placeholder="Email"/>
+            </label>
+            <label>
+                <input type="password" name="password" placeholder="Password"/>
+            </label>
+            <input type="submit" name="signup-Button" value="注册"/>
+        </form>
+    </div>
+    <div class="right-box">
+        <h1> Sign in </h1>
+        <form method="POST" action={{ url_for(".login") }}>
+            <label>
+                <input type="text" name="username" placeholder="Username" value="test"/>
+            </label>
+            <label>
+                <input type="password" name="password" placeholder="Password" value="test"/>
+            </label>
+            <input type="submit" name="sign-in-Button" value="登陆"/>
+            <br><a href="{{ url_for('reset.index') }}" style="color:#ffffff;">Forget password？</a>
+        </form>
+    </div>
+    <div class="Forget">
+    </div>
+    <div class="or">OR</div>
+</div>
+
+</body>
+</html>

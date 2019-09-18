@@ -1,0 +1,124 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-image: url(/static/img/login.jpg);
+    background-attachment: fixed;
+
+
+    font-family: Sans-serif, serif;
+    
+}
+#login-box,
+#register-box
+{
+    position:relative;
+    margin: 5% auto;
+    height: 450px;
+    width: 800px;
+    background: #fff;
+    opacity:0.75;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6)
+}
+
+h1
+{
+    margin: 0 0 20px 0;
+    font-weight: 300;
+    font-size: 28px;
+}
+
+.left-box
+{
+    position: absolute;
+    top:0;
+    left:0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 300px;
+    height: 400px;
+}
+
+.right-box
+{
+    color: #ffffff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    padding: 60px;
+    width: 400px;
+    height: 450px;
+    background-image: url(/static/img/login.jpg);
+    background-size: cover;
+    background-position: center;
+    
+}
+
+#reset-box
+{
+    position:relative;
+    margin: 5% auto;
+    height: 450px;
+    width: 800px;
+    opacity:0.75;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6)
+}
+
+input[type="text"],
+input[type="password"]
+{
+    display:block;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 4px;
+    width: 220px;
+    height: 32px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #aaa;
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+input[type="submit"]
+{
+    margin-bottom: 28px;
+    width: 120px;
+    height: 32px;
+    background: #f44336;
+    boarder:none;
+    border-radius: 2px;
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus
+{
+    background: #ff5722;
+    transition: 0.2s ease;
+}
+
+.or
+{
+    position: absolute;
+    top:180px;
+    left: 380px;
+    width: 40px;
+    height: 40px;
+    background: #efefef;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    line-height: 40px;
+    text-align: center;
+    
+}
+

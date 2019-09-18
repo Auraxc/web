@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png">
+    <link rel="manifest" href="/static/img/site.webmanifest">
+</head>
+<body>
+<div id="reset-box">
+    <div class="left-box">
+        <h1> 找回密码 </h1>
+        <h2>{{ username }}</h2>
+        {{ message }}
+        <form method="POST" action={{ url_for(".update") }}>
+            <label>
+                <input type="text" name="password" placeholder="password">
+            </label>
+            <input type="hidden" name="id" value={{ uid }}>
+            <button type="submit">提交</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

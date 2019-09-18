@@ -1,0 +1,57 @@
+
+{% extends "topic/base.html" %}
+{% block title %}论坛主页{% endblock %}
+{% block main %}
+    <div id="content">
+        <div class="panel">
+            <div class="header">
+                <a href="/topic"
+                   class="topic-tab current-tab">
+                    全部的帖子
+                </a>
+
+                {% for b in bs %}
+                    <a href="/topic?board_id={{ b.id }}"
+                       class="topic-tab current-tab">
+                        {{ b.title }}
+                    </a>
+                {% endfor %}
+            </div>
+            <div class="inner post">
+                <div class="topic_list">
+                    {% for t in ms %}
+                        <div class="cell">
+                            <div class="topic_title_wrapper">
+                                <a class="topic_title" href="{{ url_for('topic.detail', id=t.id) }}">
+                                    {{ t.title }}
+                                </a>
+                                <a class="topic_title_delete"
+                                   href="{{ url_for('topic.delete', id=t.id, token=token) }}">
+                                    删除
+                                </a>
+                                <span class="topic_title_detail" style="text-align: right;">回复:{{ t.replies() | count }} / 阅读:{{ t.views }}</span>
+                                <!--<a class="topic_title" href="{{ url_for('topic.delete', id=t.id) }}">-->
+
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{#</div>#}
+<script>
+    (function () {
+        var editor = new Editor();
+        editor.render($('.editor')[0]);
+    })();
+
+</script>
+
+{#{% endblock %}#}
+
+
+<!--</body>-->
+<!--</html>-->

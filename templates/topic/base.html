@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {#    <link rel="stylesheet" href="/static/css/bootstrap.min.css">#}
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link href="/static/css/user.bak.css" media="all" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png">
+    <link rel="manifest" href="/static/img/site.webmanifest">
+    <head>
+<body>
+
+<!-- slide bar -->
+<div class="custom-padding">
+    <nav>
+        <div class="logo">Auramux</div>
+
+        <ul class="menu-area">
+            <li><a href="{{ url_for('topic.index') }}">首页</a></li>
+            <li><a href="{{ url_for('index.setting') }}">设置</a></li>
+            <li><a href="{{ url_for('index.profile') }}">个人中心</a></li>
+            <li><a href="/">登陆</a></li>
+        </ul>
+    </nav>
+</div>
+<div id="main">
+
+    <div id="sidebar">
+
+        <div class="panel">
+
+            <div class="header">
+                <span class="col_fade">个人信息</span>
+            </div>
+            <div class="inner">
+                <div class="user_card">
+                    <div>
+                        <a class="user_avatar">
+                            <img src="/{{ user.image }} " alt="Smiley face">
+                        </a>
+                        <p>
+                            <span class="user_name"><a class="dark"
+                                                       href="{{ url_for("index.profile") }}">{{ user.username }} </a></span>
+
+                        </p>
+
+                        <div class="board clearfix">
+                            <div class="floor">
+                            </div>
+                        </div>
+                        <div class="space clearfix"></div>
+                        <span class="signature">
+        “{{ user.bio }}”
+    </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="pub">
+            <div class="inner">
+                <a href="/topic/new?board_id=-1" class="create_topic_btn">
+                    <span class="span-success">发布话题</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    {% block main %}
+    {% endblock %}
+</div>
+<div class="site-footer">
+        <div class="copyright">Made by Auramux
+        </div>
+        <div class="copyright">蒙ICP备19003812号-1</div>
+</div>
+
+</body>

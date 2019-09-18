@@ -1,0 +1,98 @@
+{% extends "topic/base.html" %}
+{% block title %}个人主页{% endblock %}
+{% block main %}
+        <div id="content">
+        <div class="panel">
+            <div class="header">
+                <ul class="breadcrumb">
+                    <li><a href="{{ url_for('topic.index') }}">主页</a><span class="divider">/</span></li>
+                </ul>
+            </div>
+            <div class="inner userinfo">
+                <div class="user_big_avatar">
+                    <img src={{ user.image }} title="{{ user.username }}" alt="Smiley face">
+                </div>
+                <a class="dark">{{ user.username }}</a>
+
+                <div class="user_profile">
+                    <ul class="unstyled">
+                        <li>
+                            <i class="github"></i>
+                            <a class="dark" target="_blank">
+                                @{{ user.username }}
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <p class="col_fade">注册时间 {{ user.created_time | format_time }}</p>
+
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="header">
+                <span class="col_fade">最近创建的话题</span>
+            </div>
+
+            <div class="inner">
+                {% for t in topic %}
+                    {# for i, r in enumerate(topic.replies())  #}
+                    {% set u = t.user() %}
+                    <div class='all topic'>
+                        <a class="dark" href="/topic/{{ t.id }}" target="_blank">
+                            {{ t.title }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+        <div class="panel">
+            <div class="header">
+                <span class="col_fade">最近参与的话题</span>
+            </div>
+
+            <div class="inner">
+                {% for t in replied %}
+                    {# for i, r in enumerate(topic.replies())  #}
+                    {#% set u = t.user() %#}
+                    <div class='all topics'>
+                        <a class="dark" href="/topic/{{ t.topic_id }}" target="_blank">
+                            {{ t.content }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        <div class="panel">
+            <div class="header">
+                <span class="col_fade">上传头像</span>
+            </div>
+            <div class="inner">
+            <form method="post"
+                  action="{{ url_for('.avatar_add') }}"
+                  enctype="multipart/form-data"
+            >
+                <input type="file" name="avatar">
+                <button class="editor_buttons" type="submit">上传头像</button>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script>
+    (function () {
+        var editor = new Editor();
+        editor.render($('.editor')[0]);
+    })();
+
+</script>
+{% endblock %}
+{#</div>#}
+
+
+{#{% endblock %}#}
+
+
+<!--</body>-->
+<!--</html>-->

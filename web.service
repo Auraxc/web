@@ -1,0 +1,12 @@
+[Unit]
+Description=web demo
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/var/www/web
+ExecStart=/usr/local/bin/gunicorn app_for_gunicorn:wsgi_app --bind 127.0.0.1:3000
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

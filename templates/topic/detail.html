@@ -1,0 +1,119 @@
+{% extends "topic/base.html" %}
+{% block title %}{{ topic.title }}{% endblock %}
+{% block main %}
+
+    <div id="content">
+    <div class='panel'>
+        <div class='header topic_header'>
+        <span class="topic_full_title">
+			{{ topic.title }}
+      	</span>
+            <div class="changes">
+            <span>
+                发布于 2 天前
+            </span>
+                <span>
+                {% set u = topic.user() %}
+                作者 {{ u.username }}
+        	</span>
+                <span>
+          	    {{ topic.views }} 次浏览
+        	</span>
+                <span>
+                来自 问答
+            </span>
+            </div>
+        </div>
+
+        <div class='inner topic'>
+            <div class='topic_content'>
+                <div class="markdown-text">{{ topic.content }}</div>
+            </div>
+        </div>
+    </div>
+    <div class='panel'>
+        <div class="header">"回复主题"</div>
+        <div class="cell reply_area reply_item">
+            <form action="{{ url_for('reply.add') }}" method="post">
+                <input type="hidden" name="topic_id" value="{{ topic.id }}">
+                <label>
+                    <textarea name="content" style="margin: 0px 0px 10px; width: 100%; height: 85px;"></textarea>
+                </label>
+                <button class="editor_buttons">添加回复</button>
+            </form>
+        </div>
+    </div>
+    <div class='panel'>
+    <div class='header'>
+            <span class='col_fade'>
+                <!-- 过滤器 -->
+                {{ topic.replies() | count }} 回复
+            </span>
+    </div>
+    {% for r in topic.replies() %}
+        {% set u = r.user() %}
+        <div class='cell reply_area reply_item'>
+            <div class='author_content'>
+                <div class='user_info'>
+                    <a class='dark reply_author'>
+                        {{ u.username }}
+                    </a>
+                    <a class="reply_time">
+                        {{ loop.index }}楼 / {{ loop.length }}楼 •
+                        <span>{{ r.created_time }}</span>
+                    </a>
+                </div>
+            </div>
+            <div class='reply_content from-leiwei1991'>
+                <div class="markdown-text">{{ r.content }}</div>
+
+            </div>
+        </div>
+    {% endfor %}
+
+
+
+
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/marked.min.js"></script>
+    <script>
+        var e = function (sel) {
+            return document.querySelector(sel)
+        }
+
+        var es = function (sel) {
+            return document.querySelectorAll(sel)
+        }
+
+        var markContents = function () {
+            // markdown -> html 的处理放在高亮前面
+            // 因为高亮是针对 html 格式的
+            // lang -> language 不需要转 prism 自动转了
+            var contentDivs = es('.markdown-text')
+            for (var i = 0; i < contentDivs.length; i++) {
+                var contentDiv = contentDivs[i]
+                console.log('pre marked', contentDiv.textContent)
+                var content = marked(contentDiv.textContent)
+                console.log('after marked', content)
+                contentDiv.innerHTML = content
+            }
+        }
+
+        var highlight = function () {
+            // 自动加载对应的语言 不然要手动加入各个语言的 js
+            Prism.plugins.autoloader.languages_path = 'https://cdn.bootcss.com/prism/1.13.0/components/'
+        }
+
+        var __main = function () {
+            markContents()
+            highlight()
+        }
+
+        __main()
+
+    </script>
+
+{% endblock %}
+</div>
+</div>

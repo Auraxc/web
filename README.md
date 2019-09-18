@@ -25,11 +25,11 @@
 
 - XSRF 防范
 
-![XSRF 防范](https://github.com/Auraxc/Flask_web/blob/master/image/XSRF 防范.gif)
+![XSRF 防范](https://github.com/Auraxc/Flask_web/blob/master/image/XSRF防范.gif)
 
 - XSS 防范
 
-![XSS 防范](https://github.com/Auraxc/Flask_web/blob/master/image/XSS 防范.gif)
+![XSS 防范](https://github.com/Auraxc/Flask_web/blob/master/image/XSS防范.gif)
 
 - 登陆
 

@@ -41,7 +41,7 @@ rm -f /etc/nginx/sites-available/default
 # 不要在 sites-available 里面放任何东西
 cp web.nginx /etc/nginx/sites-enabled/web
 
-# systemd web18 python 服务
+# systemd web python 服务
 cp web.service /etc/systemd/system/web.service
 cp web-message-queue.service /etc/systemd/system/web-message-queue.service
 
